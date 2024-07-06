@@ -86,7 +86,8 @@ body{
     width: 100%;
     flex-direction: column;
     background: #3D405B;
-    display: none;}
+    display: none;
+border-bottom: solid #F2CC8F 6px;}
 .dropdown-links a{
     color: #F2CC8F;
     margin-top: 10px;}
@@ -435,3 +436,80 @@ button[type="submit"]:hover {
         width: 13vw;
     height: 13vw;
     }}
+
+/*FAQS*/
+.faq-container{
+    width: 90vw;
+    height: 70vh;
+    margin: auto;
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10vh 20vh 20vh 20vh;
+    gap: 2%; 
+}
+
+.faq-title{
+    grid-column: 1/3;
+    font-size: 3rem;
+    font-family: "Danfo", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:"ELSH" 0;
+    color: #3D405B;
+    text-shadow: #F2CC8F -8px 2px;
+}
+
+.question{
+    margin-bottom: 2%;
+    background: #3D405B;
+    border-radius: 10px 0px 10px 0px;
+    flex-direction: column;
+    max-height: 20vh;
+    min-height: 20vh;
+}
+
+.question-title{
+    width: 95%;
+    font-size: 1.5rem;
+    color: #f4bb60;
+}
+
+.faq-answer{
+    width: 95%;
+    color: #F2CC8F;
+}
+
+@media only screen and (max-width: 1100px) {
+    .faq-container{
+        height: 130vh;
+        border-bottom: 20px;
+    }
+    .question{
+        grid-template-rows: 10vh 20vh 20vh 20vh 20vh 20vh 20vh;
+        grid-column: 1/3;
+    }
+    .faq-title{
+        font-size: 2.5rem;
+    }
+    .faq-answer{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .faq-container{
+        height: 130vh;
+        border-bottom: 20px;
+    }
+    .question{
+        grid-template-rows: 10vh 20vh 20vh 20vh 20vh 20vh 20vh;
+        grid-column: 1/3;
+    }
+    .faq-title{
+        font-size: 2rem;
+    }
+    .faq-answer{
+        font-size: 0.8rem;
+    }
+}
