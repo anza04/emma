@@ -13,20 +13,19 @@ var thirdCategoryItems = document.getElementsByClassName("category-3");
 firstCategoryBtn.classList.add("category-btn-active");
 updateCategoryStatus();
 
-function updateCategoryStatus()
-{
+function updateCategoryStatus() {
     for (let i = 0; i < firstCategoryItems.length; i++) {
-        firstCategoryItems[i].style.display =firstCategoryState;
+        firstCategoryItems[i].style.display = firstCategoryState;
     }
     for (let j = 0; j < secondCategoryItems.length; j++) {
-        secondCategoryItems[j].style.display =secondCategoryState;
+        secondCategoryItems[j].style.display = secondCategoryState;
     }
-    for (let k = 0; k < thirdCategoryItems.length;k++) {
-        thirdCategoryItems[k].style.display =thirdCategoryState;
+    for (let k = 0; k < thirdCategoryItems.length; k++) {
+        thirdCategoryItems[k].style.display = thirdCategoryState;
     }
 }
 
-firstCategoryBtn.addEventListener("click", ()=>{
+firstCategoryBtn.addEventListener("click", () => {
     firstCategoryState = 'flex';
     secondCategoryState = 'none';
     thirdCategoryState = 'none';
@@ -36,7 +35,7 @@ firstCategoryBtn.addEventListener("click", ()=>{
     updateCategoryStatus();
 })
 
-secondCategoryBtn.addEventListener("click", ()=>{
+secondCategoryBtn.addEventListener("click", () => {
     firstCategoryState = 'none';
     secondCategoryState = 'flex';
     thirdCategoryState = 'none';
@@ -45,7 +44,7 @@ secondCategoryBtn.addEventListener("click", ()=>{
     thirdCategoryBtn.classList.remove("category-btn-active");
     updateCategoryStatus();
 })
-thirdCategoryBtn.addEventListener("click", ()=>{
+thirdCategoryBtn.addEventListener("click", () => {
     firstCategoryState = 'none';
     secondCategoryState = 'none';
     thirdCategoryState = 'flex';
@@ -54,4 +53,3 @@ thirdCategoryBtn.addEventListener("click", ()=>{
     thirdCategoryBtn.classList.add("category-btn-active");
     updateCategoryStatus();
 })
-  
