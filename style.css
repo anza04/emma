@@ -505,7 +505,7 @@ button[type="submit"]:hover {
 .category-buttons{
     width: 100%;
     height: 5vh;
-    margin-top: 5vh;;
+    margin-top: 5vh;
 }
 
 .category-btn{
@@ -525,6 +525,11 @@ button[type="submit"]:hover {
     background: #3D405B;
 }
 
+.category-btn-active{
+    color: #F2CC8F;
+    background: #3D405B;
+}
+
 .products-container{
     height: 65vh;
     width: 80vw;
@@ -536,14 +541,95 @@ button[type="submit"]:hover {
     width: 20%;
     height: 70%;
     flex-direction: column;
+    border-radius: 10px;
+    box-shadow: #3D405B 5px 5px;
 }
 
 .product-img{
     width: 90%;
-    height: 60%;
+    height: 55%;
     background: green;
+    border-radius: 10px;
 }
 
-.product-title{
+.product-name{
     font-size: 1.5rem;
+    height: 10%;
+    width: 90%;
+    color: #3D405B;
+text-align: center;
+}
+
+.product-price{
+    height: 10%;
+    width: 90%;
+    color: #3D405B;
+text-align: center;
+}
+
+.product-btn{
+    height: 15%;
+    width: 90%;
+text-align: center;
+}
+
+.product-btn button{
+    width: 70%;
+    height: 80%;
+    border-radius: 10px;
+    background: #F2CC8F;
+    border: solid 3px #3D405B;
+}
+.product-btn img{
+    margin-right: 10px;
+}
+
+@media only screen and (max-width: 1500px) {
+    .products-container{
+        width: 90vw;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .products-container{
+        height: 120vh;
+        display: grid;
+        grid-template-columns: 25% 25% 25%;
+        grid-template-rows: 50% 50%;
+    }
+
+    .product-card{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .category-btn{
+        width: 20%;
+    }
+    .products-container{
+        height: 120vh;
+        display: grid;
+        grid-template-columns: 40% 40%;
+        grid-template-rows: 50% 50%;
+    }
+
+    .product-card{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .category-btn{
+        width: 30%;
+    }
+    .products-container{
+        height: 180vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-card{
+        width: 60%;
+        height: 40vh;
+    }
 }
