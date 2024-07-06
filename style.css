@@ -445,9 +445,7 @@ button[type="submit"]:hover {
     display:grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 10vh 20vh 20vh 20vh;
-    gap: 2%; 
-}
-
+    gap: 2%; }
 .faq-title{
     grid-column: 1/3;
     font-size: 3rem;
@@ -457,29 +455,21 @@ button[type="submit"]:hover {
     font-style: normal;
     font-variation-settings:"ELSH" 0;
     color: #3D405B;
-    text-shadow: #F2CC8F -8px 2px;
-}
-
+    text-shadow: #F2CC8F -8px 2px;}
 .question{
     margin-bottom: 2%;
     background: #3D405B;
     border-radius: 10px 0px 10px 0px;
     flex-direction: column;
     max-height: 20vh;
-    min-height: 20vh;
-}
-
+    min-height: 20vh;}
 .question-title{
     width: 95%;
     font-size: 1.5rem;
-    color: #f4bb60;
-}
-
+    color: #f4bb60;}
 .faq-answer{
     width: 95%;
-    color: #F2CC8F;
-}
-
+    color: #F2CC8F;}
 @media only screen and (max-width: 1100px) {
     .faq-container{
         height: 130vh;
@@ -494,9 +484,7 @@ button[type="submit"]:hover {
     }
     .faq-answer{
         font-size: 1rem;
-    }
-}
-
+    }}
 @media only screen and (max-width: 700px) {
     .faq-container{
         height: 130vh;
@@ -511,5 +499,51 @@ button[type="submit"]:hover {
     }
     .faq-answer{
         font-size: 0.8rem;
-    }
+    }}
+
+/*CATALOG*/
+.category-buttons{
+    width: 100%;
+    height: 5vh;
+    margin-top: 5vh;;
+}
+
+.category-btn{
+    height: 80%;
+    width: 10%;
+    margin: 0px 20px 0px 2%;
+    border-radius: 10px;
+    background: #F2CC8F;
+    color: #3D405B;
+    font-weight: bold;
+    border: 2px solid #3D405B;
+    transition: all 0.5s ease;
+}
+
+.category-btn:hover{
+    color: #F2CC8F;
+    background: #3D405B;
+}
+
+.products-container{
+    height: 65vh;
+    width: 80vw;
+    MARGIN: AUTO;
+}
+
+.product-card{
+    background: #F2CC8F;
+    width: 20%;
+    height: 70%;
+    flex-direction: column;
+}
+
+.product-img{
+    width: 90%;
+    height: 60%;
+    background: green;
+}
+
+.product-title{
+    font-size: 1.5rem;
 }
