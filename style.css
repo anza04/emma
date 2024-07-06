@@ -1,810 +1,931 @@
-@import url('https://fonts.googleapis.com/css2?family=Danfo&family=Freeman&display=swap');
+/* Import the Danfo and Freeman fonts from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Danfo&family=Freeman&display=swap");
 
+/* Define root-level CSS variables for theme colors and background */
 :root {
-    --theme-color-1: #F2CC8F;
-    --background: #F4F1DE;
-    --theme-color-2: #3D405B;
-    --accent: #f4bb60;
-  }
-
-/*STILI BASE*/
-body{
-    max-width: 2000px;
-    margin: auto;
-    padding: 0;
-    box-sizing: border-box;
-    background: var(--background);
-    font-family: "Freeman", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    overflow-x: hidden;
+  --theme-color-1: #f2cc8f;
+  --background: #f4f1de;
+  --theme-color-2: #3d405b;
+  --accent: #f4bb60;
 }
 
-.fsasa{
-    display: flex;
-    justify-content: space-around;
-    align-items: space-around;
+/* BASE STYLES */
+body {
+  max-width: 2000px; /* Set a maximum width for the body */
+  margin: auto; /* Center the body horizontally */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  background: var(--background  ); /* Set the background color using the defined variable */
+  font-family: "Freeman", sans-serif; /* Set the default font family to Freeman */
+  font-weight: 400; /* Set the default font weight to normal */
+  font-style: normal; /* Set the default font style to normal */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
-.fsac{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+/* Utility class for flexbox layout: space-around justification and space-around alignment */
+.fsasa {
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
 }
 
-.fcc{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Utility class for flexbox layout: space-around justification and center alignment */
+.fsac {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.fsae{
-    display: flex;
-    justify-content: space-around;
-    align-items: end;
+/* Utility class for flexbox layout: center justification and center alignment */
+.fcc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Utility class for flexbox layout: space-around justification and end alignment */
+.fsae {
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+}
 
 /* NAVBAR */
-.navbar{
-    width: 100%;
-    height: 10vh;
-    position: relative;
+.navbar {
+  width: 100%; /* Navbar takes full width */
+  height: 10vh; /* Navbar height set to 10% of viewport height */
+  position: relative; /* Allows positioning of child elements within */
 }
 
-.navbar li{
-    list-style: none;
-    border-bottom: var(--theme-color-1) 5px solid;
-    transition: all 0.5s ease;
+.navbar li {
+  list-style: none; /* Removes default list item styling */
+  border-bottom: var(--theme-color-1) 5px solid; /* Adds a bottom border using theme color */
+  transition: all 0.5s ease; /* Smooth transition for all changes */
 }
 
-.navbar li:hover{
-    list-style: none;
-    border-bottom: var(--theme-color-1) 7px solid;
+.navbar li:hover {
+  list-style: none;
+  border-bottom: var(--theme-color-1) 7px solid; /* Increases border width on hover */
 }
 
-.navbar .links a, .navbar .title a{
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.5s ease;
-    color: var(--theme-color-2);
+.navbar .links a,
+.navbar .title a {
+  /* Styles links within navbar links and title */
+  font-weight: bold;
+  text-decoration: none; /* Removes underlines from links */
+  transition: all 0.5s ease;
+  color: var(--theme-color-2); /* Sets link color using theme color */
 }
 
-.navbar li a:hover{
-    transform: scale(1.1);
-    transform: translateY(-2px);
+.navbar li a:hover {
+  /* Hover effect for links within list items */
+  transform: scale(1.1); /* Enlarges link slightly */
+  transform: translateY(-2px); /* Moves link up slightly */
 }
 
-.navbar .title{
-    width: 40%;
-    height: 100%;
-    font-size: 4rem;
-    font-family: "Danfo", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:"ELSH" 0;    
-    border-bottom: 0px solid;
+/* Styles for the title within the navbar */
+.navbar .title {
+  width: 40%; /* Sets width of the title */
+  height: 100%; /* Sets height of the title */
+  font-size: 4rem; /* Sets font size */
+  font-family: "Danfo", serif; /* Sets font family */
+  font-optical-sizing: auto; /* Enables automatic optical sizing */
+  font-weight: 400; /* Sets font weight */
+  font-style: normal; /* Sets font style to normal */
+  font-variation-settings: "ELSH" 0; /* Sets font variation settings */
 }
 
-.navbar .title:hover{ 
-    border-bottom: 0px solid;
+/* Styles for the burger menu icon */
+.burger {
+  width: 35px; /* Sets width of the burger icon */
+  height: 35px; /* Sets height of the burger icon */
+  position: absolute; /* Positions the icon absolutely */
+  top: 50%; /* Positions the icon vertically centered */
+  right: 3%; /* Positions the icon 3% from the right edge */
+  transform: translateY(-50%  ); /* Adjusts vertical position for perfect centering */
+  display: none; /* Initially hides the burger icon */
+  z-index: 1; /* Ensures the icon is above other elements */
 }
 
-.burger{
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    top: 50%;
-    right: 3%;
-    transform: translateY(-50%);
-    display: none;
-    z-index: 1;
+/* Styles for the lines within the burger menu icon */
+.line1,.line2,.line3 {
+  width: 100%; /* Sets width of each line to fill the container */
+  height: 5px; /* Sets height of each line */
+  margin-top: 5px; /* Adds top margin */
+  margin-bottom: 5px; /* Adds bottom margin */
+  background: var(--theme-color-2  ); /* Sets background color using a theme variable */
+  transition: 0.4s; /* Adds a transition effect for smooth changes */
 }
 
-.line1, .line2, .line3{
-    width: 100%;
-    height: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background: var(--theme-color-2);
-    transition: 0.4s;
+/* Styles for the dropdown menu */
+.dropdown-menu {
+  position: absolute; /* Positioned absolutely within its parent */
+  top: 0%; /* Aligned to the top of its parent */
+  left: 50%; /* Centered horizontally */
+  transform: translateX(-50%); /* Adjusted to be perfectly centered */
+  height: 40vh; /* Takes up 40% of the viewport height */
+  z-index: 0; /* Stays behind other elements with higher z-index */
+  width: 100%; /* Occupies full width of its parent */
+  flex-direction: column; /* Arranges items vertically */
+  background: var(--theme-color-2); /* Uses a theme color for background */
+  display: none; /* Hidden by default */
+  border-bottom: solid var(--theme-color-1) 6px; /* Bottom border with theme color */
 }
 
-.dropdown-menu{
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 40vh;
-    z-index: 0;
-    width: 100%;
-    flex-direction: column;
-    background: var(--theme-color-2);
-    display: none;
-border-bottom: solid var(--theme-color-1) 6px;
+/* Styles for links within the dropdown menu */
+.dropdown-links a {
+  color: var(--theme-color-1); /* Uses a theme color for link text */
+  margin-top: 10px; /* Adds top margin for spacing */
 }
 
-.dropdown-links a{
-    color: var(--theme-color-1);
-    margin-top: 10px;
-}
-
+/* Media query for smaller screens (max-width: 740px) */
 @media only screen and (max-width: 740px) {
-    .navbar .links{
-        display: none;
-    }
-    .navbar .title{
-        width: 100%;
-        font-size: 3rem;
-    z-index: 1;
-    }
-    .burger{
-        display: block;
-    }}
+  .navbar .links {
+    display: none; /* Hides the regular navigation links */
+  }
+  .navbar .title {
+    width: 100%; /* Title takes full width */
+    font-size: 3rem; /* Larger font size for title */
+    z-index: 1; /* Ensures title is above other elements */
+  }
+  .burger {
+    display: block; /* Shows the burger menu icon */
+  }
+}
 
 /*SLIDESHOW*/
-.slideshow-container{
-    width: 100%;
-    height: 80vh;
-    margin: auto;
+/* Styles for the slideshow container */
+.slideshow-container {
+  width: 100%; /* Takes up full width of parent */
+  height: 80vh; /* Height is 80% of the viewport height */
+  margin: auto; /* Centers the container horizontally */
 }
 
-.img-container{
-    width: 80%;
-    height: 80%;
-    border: solid var(--theme-color-2) 5px;
-    margin: auto;
-    border-radius: 10px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: all 0.5s linear;
+/* Styles for the image container within the slideshow */
+.img-container {
+  width: 80%; /* Takes up 80% of the slideshow container width */
+  height: 80%; /* Height is 80% of the slideshow container height */
+  border: solid var(--theme-color-2) 5px; /* Solid border using a theme color */
+  margin: auto; /* Centers the image container horizontally */
+  border-radius: 10px; /* Rounded corners */
+  background-size: cover; /* Ensures image covers the container fully */
+  background-repeat: no-repeat; /* Prevents image repetition */
+  background-position: center; /* Centers the image withinthe container */
+  transition: all 0.5s linear; /* Smooth transition for all changes over 0.5 seconds */
 }
 
-.next, .prev{
-    height: 100%;
-    width: 10%;
+/* Styles for the next and previous navigation elements */
+.next,.prev {
+  height: 100%; /* Full height of the slideshow container */
+  width: 10%; /* 10% width of the slideshow container */
 }
 
-.next button, .prev button{
-    background:var(--theme-color-2);
-    width: 5vw;
-    height: 5vw;
-    border-radius: 100px;
-    font-weight: bold;
-    color: var(--background);
-    font-size: 1.5rem;
+/* Styles for the buttons within the next and previous navigation elements */
+.next button,
+.prev button {
+  background: var(--theme-color-2); /* Background color using a theme color */
+  width: 5vw; /* Width relative to viewport width */
+  height: 5vw; /* Height relative to viewport width */
+  border-radius: 100px; /* Circular shape */
+  font-weight: bold; /* Bold text */
+  color: var(--background); /* Text color using a theme color */
+  font-size: 1.5rem; /* Font size */
 }
 
-.slogan{
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    bottom: 12%;
-    font-size: 7rem;
-    font-family: "Danfo", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:"ELSH" 0;
-    color: var(--theme-color-1);
-    text-shadow: var(--theme-color-2) -10px 5px;
+/* Styles for the main slogan element */
+.slogan {
+  width: 100%; /* Occupies full available width */
+  text-align: center; /* Centers the text within the slogan */
+  position: absolute; /* Positions the slogan relative to its container */
+  bottom: 12%; /* Places the slogan 12% from the bottom of its container */
+  font-size: 7rem; /* Sets the font size to 7rem */
+  font-family: "Danfo", serif; /* Specifies the font family to "Danfo" with a fallback to a generic serif font */
+  font-optical-sizing: auto; /* Enables automatic optical sizing for the font */
+  font-weight: 400; /* Sets the font weight to normal (400) */
+  font-style: normal; /* Sets the font style to normal */
+  font-variation-settings: "ELSH" 0; /* Applies a font variation setting (if supported by the font) */
+  color: var(--theme-color-1  ); /* Sets the text color using a theme color variable */
+  text-shadow: var(--theme-color-2) -10px 5px; /* Applies a text shadow using a theme color variable */
 }
 
+/* Media query for screens with a maximum width of 1340px */
 @media only screen and (max-width: 1340px) {
-    .slogan{
-        font-size: 6rem;
-    }}    
+  .slogan {
+    font-size: 6rem; /* Adjusts the font size to 6rem for smaller screens */
+  }
+}
+
+/* Media query for screens with a maximum width of 1100px */
 @media only screen and (max-width: 1100px) {
-    .slogan{
-        font-size: 5rem;
-    }}
+  .slogan {
+    font-size: 5rem; /* Adjusts the font size to 5rem for even smaller screens */
+  }
+}
+/* Media query for screens with a maximum width of 900px */
 @media only screen and (max-width: 900px) {
-    .slogan{
-        width: 90%;
-        line-height: 70px;
-        font-size: 4rem;
-        text-align: center;
-    }
-    .img-container{
-        width: 100%;
-        height: 80vh;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-    }
-    .next, .prev{
-        position: absolute;
-        height: 80vh;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40%;
-        opacity: 0;
-    }
-    .next{
-        right: 0;
-    }
-    .prev{
-        left: 0;
-    }}
+  .slogan {
+    width: 90%; /* Sets the width of the slogan to 90% of the container */
+    line-height: 70px; /* Sets the line height of the slogan text */
+    font-size: 4rem; /* Sets the font size of the slogan text */
+    text-align: center; /* Centers the slogan text */
+  }
+  .img-container {
+    width: 100%; /* Sets the width of the image container to 100% */
+    height: 80vh; /* Sets the height of the image container to 80% of the viewport height */
+    border-radius: 0; /* Removes any border radius from the image container */
+    border-left: none; /* Removes the left border from the image container */
+    border-right: none; /* Removes the right border from the image container */
+  }
+  .next,
+  .prev {
+    /* Styles for both the "next" and "prev" navigation elements */
+    position: absolute; /* Positions the elements absolutely within their container */
+    height: 80vh; /* Sets the height of the elements to 80% of the viewport height */
+    top: 50%; /* Positions the elements 50% from the top of their container */
+    transform: translateY(-50%); /* Vertically centers the elements within their container */
+    width: 40%; /* Sets the width of the elements to 40% of their container */
+    opacity: 0; /* Hides the elements by default */
+  }
+  .next {
+    right: 0; /* Positions the "next" element to the right edge of its container */
+  }
+  .prev {
+    left: 0; /* Positions the "prev" element to the left edge of its container */
+  }
+}
 
 /*CARDS*/
-.cards-container{
-    position: relative;
-    width: 100%;
-    height: 70vh;
+.cards-container {
+  /* Container to hold all the cards and set its dimensions */
+  position: relative; /* Allows for positioning of child elements within the container */
+  width: 100%; /* Sets the width of the container to 100% of its parent */
+  height: 70vh; /* Sets the height of the container to 70% of the viewport height */
 }
 
-.card{
-    width: 25%;
-    height: 80%;
-    border-radius: 10px;
-    box-shadow: var(--theme-color-1) 5px 5px;
-    background: var(--theme-color-2);
-    flex-direction: column;
-    transition: all 0.5s ease;
+.card {
+  /* Styling for each individual card within the container */
+  width: 25%; /* Sets the width of each card to 25% of its parent container */
+  height: 80%; /* Sets the height of each card to 80% of its parent container */
+  border-radius: 10px; /* Rounds the corners of the card by 10 pixels */
+  box-shadow: var(--theme-color-1) 5px 5px; /* Applies a box shadow using a theme color variable */
+  background: var(--theme-color-2); /* Sets the background color of the card using a theme color variable */
+  flex-direction: column; /* Sets the flex direction of the card to column, stacking elements vertically */
+  transition: all 0.5s ease; /* Applies a smooth transition to all animatable properties of the card */
 }
 
-.card:hover{
-    transform: scale(1.05);
+.card:hover {
+  /* Hover effect for each card */
+  transform: scale(1.05); /* Scales the card up by 5% on hover */
 }
 
-.card-img{
-    width: 90%;
-    margin: auto;
-    height: 55%;
-    border-radius: 10px;
-    background: var(--background);
+.card-img {
+  /* Styling for the image within each card */
+  width: 90%; /* Sets the width of the image to 90% of its parent container */
+  margin: auto; /* Centers the image horizontally within its parent container */
+  height: 55%; /* Sets the height of the image to 55% of its parent container */
+  border-radius: 10px; /* Rounds the corners of the image by 10 pixels */
+  background: var(--background); /* Sets the background color of the image using a background color variable */
 }
 
-.inner-card-title{
-    color:var(--background);
-    height: 5%;
-    font-size: 1.5rem;
+.inner-card-title {
+  /* Styling for the title within each card */
+  color: var(--background); /* Sets the text color of the title using a background color variable */
+  height: 5%;
+  font-size: 1.5rem;
 }
 
-.card-desc{
-    color:var(--background);
-    height: 10%;
-    width: 80%;
-    text-align: center;
-    font-size: 1rem;
-    margin: auto;
+/* Styles for the card description */
+.card-desc {
+  color: var(--background); /* Sets the text color to the background color variable */
+  height: 10%; /* Sets the height to 10% of its parent container */
+  width: 80%; /* Sets the width to 80% of its parent container */
+  text-align: center; /* Centers the xt horizontally */
+  font-size: 1rem; /* Sets the font size to 1rem */
+  margin: auto; /* Centers the element horizontally with automatic left and right margins */
 }
 
-.shop-now{
-    height: 7%;
-    width: 30%;
-    margin: auto;
+/* Styles for the "Shop Now" container */
+.shop-now {
+  height: 7%; /* Sets the height to 7% of its parent container */
+  width: 30%; /* Sets the width to 30% of its parent container */
+  margin: auto; /* Centers the element horizontally with automatic left and right margins */
 }
 
-.shop-now button{
-    width: 100%;
-    height: 100%;
-    background: var(--theme-color-2);
-    border-radius: 10px;
-    font-weight: bold;
-    border: 2px solid var(--accent);
-    color: var(--background);
-    transition: all 0.5s ease;
+/* Styles for the "Shop Now" button */
+.shop-now button {
+  width: 100%; /* Sets the width to 100% of its parent container */
+  height: 100%; /* Sets the height to 100% of its parent container */
+  background: var(--theme-color-2); /* Sets the background color to the theme color 2 variable */
+  border-radius: 10px; /* Rounds the corners of the button by 10 pixels */
+  font-weight: bold; /* Sets the font weight to bold */
+  border: 2px solid var(--accent); /* Sets a 2-pixel solid border with the accent color variable */
+  color: var(--background); /* Sets the text color to the background color variable */
+  transition: all 0.5s ease; /* Adds a smooth transition for all properties with a duration of 0.5 seconds and an ease timing function */
 }
 
-.shop-now button:hover{
-    background: var(--accent);
-    border-radius: 10px;
-    font-weight: bold;
-    border: 2px solid var(--accent);
-    color: var(--background);
+/* Styles for the "Shop Now" button on hover */
+.shop-now button:hover {
+  background: var(--accent); /* Sets background color to the accent color */
+  border-radius: 10px; /* Rounds the corners of the button */
+  font-weight: bold; /* Makes the button text bold */
+  border: 2px solid var(--accent); /* Adds a solid border in the accent color */
+  color: var(--background); /* Sets text color to the background color */
 }
 
-.card1{
-    background: url(./img/slideshow/1.jpg);
+/* Background image for card 1 */
+.card1 {
+  background: url(./img/slideshow/1.jpg);
 }
 
-.card2{
-    background: url(./img/slideshow/2.jpg);
+/* Background image for card 2 */
+.card2 {
+  background: url(./img/slideshow/2.jpg);
 }
 
-.card3{
-    background: url(./img/slideshow/3.jpg);
+/* Background image for card 3 */
+.card3 {
+  background: url(./img/slideshow/3.jpg);
 }
 
-.card1, .card2, .card3{
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+/* Common background styles for all cards */
+.card1,.card2,.card3 {
+  background-size: contain; /* Ensures the background image is fully contained within the card */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  background-position: center; /* Centers the background image within the card */
 }
 
+/* Media query for screen sizes smaller than 1480px */
 @media only screen and (max-width: 1480px) {
-    .card-img{
-        height: 40%;
-    }
-    .inner-card-title{
-        font-size: 2rem;
-        height: 5%;
-    }
-    .card-desc{
-        font-size: 1rem;
-    }
-    .shop-now{
-        height: 10%;
-    }}    
+  /* Adjusts the height of the card image */
+  .card-img {
+    height: 40%;
+  }
+  /* Adjusts the font size and height of the inner card title */
+  .inner-card-title {
+    font-size: 2rem;
+    height: 5%;
+  }
+  /* Adjusts the font size of the card description */
+  .card-desc {
+    font-size: 1rem;
+  }
+  /* Adjusts the height of the "shop now" section */
+  .shop-now {
+    height: 10%;
+  }
+}
+
+/* Styles for screens smaller than 1100px */
 @media only screen and (max-width: 1100px) {
-    .inner-card-title
-    {
-        height: 10%;
-    }
-    .cards-container{
-        flex-direction: column;
-        height: 180vh;
-        justify-content: center;
-        align-items: center;
-    }
-    .card-img{
-        width: 100%;
-        background-size: cover;
-        height: 50%;
-        border-radius: 0%;
-    }
-    .card{
-        width: 70%;
-        height: 30%;
-        margin: auto;
-    }}
+  .inner-card-title {
+    height: 10%; /* Adjust height of inner card title */
+  }
+  .cards-container {
+    flex-direction: column; /* Stack cards vertically */
+    height: 180vh; /* Set container height */
+    justify-content: center; /* Center cards vertically */
+    align-items: center; /* Center cards horizontally */
+  }
+  .card-img {
+    width: 100%; /* Make image take full width */
+    background-size: cover; /* Cover the container with image */
+    height: 50%; /* Set image height */
+    border-radius: 0%; /* Remove rounded corners */
+  }
+  .card {
+    width: 70%; /* Adjust card width */
+    height: 30%; /* Adjust card height */
+    margin: auto; /* Center card */
+  }
+}
+
+/* Styles for screens smaller than 850px */
 @media only screen and (max-width: 850px) {
-    .cards-container{
-        flex-direction: column;
-        height: 200vh;
-        justify-content: center;
-        align-items: center;
-    }
-    .inner-card-title{
-        height: 5%;
-    }
-    .card{
-        width: 75%;
-        height: 30%;
-        margin: auto;
-    }
-    .card-desc{
-        font-size: 1.3rem;
-    }}
+  .cards-container {
+    flex-direction: column; /* Stack cards vertically */
+    height: 200vh; /* Set container height */
+    justify-content: center; /* Center cards vertically */
+    align-items: center; /* Center cards horizontally */
+  }
+  .inner-card-title {
+    height: 5%; /* Adjust height of inner card title */
+  }
+  .card {
+    width: 75%; /* Adjust card width */
+    height: 30%; /* Adjust card height */
+    margin: auto; /* Center card */
+  }
+  .card-desc {
+    font-size: 1.3rem; /* Adjust font size of card description */
+  }
+}
+
+/* Styles for screens smaller than 550px */
 @media only screen and (max-width: 550px) {
-        .cards-container{
-            flex-direction: column;
-            height: 200vh;
-            justify-content: center;
-            align-items: center;
-        }
-        .card{
-            width: 80%;
-            height: 30%;
-            margin: auto;
-        }
-        .card-desc{
-            font-size: 1rem;
-        }}
+  .cards-container {
+    flex-direction: column; /* Stack cards vertically */
+    height: 200vh; /* Set container height */
+    justify-content: center; /* Center cards vertically */
+    align-items: center; /* Center cards horizontally */
+  }
+  .card {
+    width: 80%; /* Adjust card width */
+    height: 30%; /* Adjust card height */
+    margin: auto; /* Center card */
+  }
+  .card-desc {
+    font-size: 1rem; /* Adjust font size of card description */
+  }
+}
 
 /*MAP*/
 .map-container {
-    position: relative;
-  height: 80vh;
-  width: 100%;
-  background: var(--background);
-  margin-top: 8vh;
+  position: relative; /* Set container position to relative for absolute positioning of children */
+  height: 80vh; /* Set container height */
+  width: 100%; /* Set container width */
+  background: var(--background); /* Set background color */
+  margin-top: 8vh; /* Add margin to the top */
 }
 
-.map{
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    border: solid var(--theme-color-2) 5px;
-    border-radius: 10px;
+.map {
+  width: 80%; /* Set map width */
+  height: 80%; /* Set map height */
+  margin: auto; /* Center the map */
+  border: solid var(--theme-color-2) 5px; /* Add border to the map */
+  border-radius: 10px; /* Round the map corners */
 }
 
-.slogan-map{
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    top: -10%;
-    font-size: 7rem;
-    font-family: "Danfo", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:"ELSH" 0;
-    color: var(--theme-color-1);
-    text-shadow: var(--theme-color-2) -10px 5px;
+/* Styles for the map slogan */
+.slogan-map {
+  width: 100%; /* Sets the width of the slogan to 100% of its container */
+  text-align: center; /* Centers the slogan text */
+  position: absolute; /* Positions the slogan absolutely within its container */
+  top: -10%; /* Positions the slogan 10% above the top of its container */
+  font-size: 7rem; /* Sets the font size of the slogan text */
+  font-family: "Danfo", serif; /* Sets the font family of the slogan text */
+  font-optical-sizing: auto; /* Enables automatic optical sizing for the font */
+  font-weight: 400; /* Sets the font weight to normal */
+  font-style: normal; /* Sets the font style to normal */
+  font-variation-settings: "ELSH" 0; /* Sets font variation settings (if supported by the font) */
+  color: var(--theme-color-1); /* Sets the text color using a CSS variable */
+  text-shadow: var(--theme-color-2) -10px 5px; /* Adds a text shadow using a CSS variable */
 }
 
+/* Media query for screens with a maximum width of 850px */
 @media only screen and (max-width: 850px) {
-    .slogan-map{
-        font-size: 5rem;
-    }}
+  .slogan-map {
+    font-size: 5rem; /* Adjusts the font size to 5rem for smaller screens */
+  }
+}
+
+/* Media query for screens with a maximum width of 600px */
 @media only screen and (max-width: 600px) {
-        .slogan-map{
-            width: 60%;
-            left: 50%;
-            transform: translateX(-50%);
-            line-height: 70px;
-        }}
+  .slogan-map {
+    width: 60%; /* Sets the width of the slogan to 60% of its container */
+    left: 50%; /* Positions the left edge of the slogan at 50% of its container */
+    transform: translateX(-50%); /* Centers the slogan horizontally */
+    line-height: 70px; /* Sets the line height of the slogan text */
+  }
+}
 
 /*FOOTER*/
-.footer{
-    width: 100%;
-    height: 15vh;
-    background: var(--theme-color-2);
-    flex-direction: column;
-    color: var(--theme-color-1);
+.footer {
+  width: 100%; /* Sets the width of the footer to 100% of the viewport width */
+  height: 15vh; /* Sets the height of the footer to 15% of the viewport height */
+  background: var(--theme-color-2); /* Sets the background color of the footer */
+  flex-direction: column; /* Sets the flex direction of the footer to column */
+  color: var(--theme-color-1); /* Sets the text color of the footer */
 }
 
-.footer a{
-    color: var(--accent);
+.footer a {
+  color: var(--accent); /* Sets the color of links within the footer to the accent color */
 }
-
 
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
-    width: 10px;
-    background: var(--theme-color-2);
+  width: 10px; /* Sets the width of the scrollbar */
+  background: var(--theme-color-2); /* Sets the background color of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent; /* Sets the background of the scrollbar track to transparent */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--theme-color-1); }
+  background: var(--theme-color-1); /* Sets the background color of the scrollbar thumb */
+}
 
-    ::-webkit-scrollbar-thumb:hover {
-background: var(--accent); }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent); /* Sets the background color of the scrollbar thumb on hover */
+}
 
 /* CONTATTI - FORM STYLING */
+
+/* Styles for the form container */
 form {
-    width: 50%; 
-    height: 60vh;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: var(--theme-color-2);
-    border-radius: 10px;
-    box-shadow: var(--theme-color-1) 5px 5px;
+  width: 50%; /* Sets the width of the form to 50% of its containing element */
+  height: 60vh; /* Sets the height of the form to 60% of the viewport height */
+  margin: 30px auto; /* Centers the form horizontally with 30px top and bottom margin */
+  padding: 20px; /* Adds 20px padding around the form content */
+  background-color: var(--theme-color-2); /* Sets the background color using a CSS variable */
+  border-radius: 10px; /* Rounds the corners of the form with a 10px radius */
+  box-shadow: var(--theme-color-1) 5px 5px; /* Adds a drop shadow using a CSS variable, offset by 5px right and 5px down */
 }
 
+/* Styles for form labels */
 label {
-    display: block;
-    margin-bottom: 10px;
-    color: var(--theme-color-1);
-    font-weight: bold;
+  display: block; /* Makes each label a block-level element, stacking them vertically */
+  margin-bottom: 10px; /* Adds 10px bottom margin to each label */
+  color: var(--theme-color-1); /* Sets the label text color using a CSS variable */
+  font-weight: bold; /* Makes the label text bold */
 }
 
-input[type="text"],
-input[type="email"],
+/* Styles for text inputs, email inputs, and textareas */
+input[type="text"], /* Selects text input fields */
+input[type="email"], /* Selects email input fields */
 textarea {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 2px solid var(--theme-color-1);
-    border-radius: 5px;
-    background-color: var(--background); 
-    color: var(--theme-color-2);
+  /* Selects textarea elements */
+  width: 90%; /* Sets the width of these input fields to 90% of their containing element */
+  padding: 10px; /* Adds 10px padding around the input content */
+  margin-bottom: 15px; /* Adds 15px bottom margin to each input field */
+  border: 2px solid var(--theme-color-1); /* Sets a 2px solid border using a CSS variable for the color */
+  border-radius: 5px; /* Rounds the corners of the input fields with a 5px radius */
+  background-color: var(--background); /* Sets the background color using a CSS variable */
+  color: var(--theme-color-2);
 }
-
+/* Sets the height of all textarea elements to 30% of their container height */
 textarea {
-    height: 30%;
+  height: 30%;
 }
 
+/* Styles for submit buttons */
 button[type="submit"] {
-    background-color: var(--theme-color-2);
-    color: var(--background);
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.5s ease;
-    border: 2px solid var(--accent);
+  background-color: var(--theme-color-2); /* Sets background color using a CSS variable */
+  color: var(--background); /* Sets text color using a CSS variable */
+  padding: 12px 20px; /* Adds padding around the button text */
+  border: none; /* Removes default browser border */
+  border-radius: 5px; /* Rounds the corners of the button */
+  cursor: pointer; /* Changes cursor to a pointer on hover */
+  font-weight: bold; /* Makes the button text bold */
+  transition: all 0.5s ease; /* Adds a smooth transition for all changes, lasting 0.5 seconds with an ease timing function */
+  border: 2px solid var(--accent); /* Adds a 2px solid border using a CSS variable for the color */
 }
 
+/* Styles for submit buttons on hover state */
 button[type="submit"]:hover {
-    background-color: var(--accent);
+  background-color: var(--accent); /* Changes background color on hover using a CSS variable */
 }
 
+/* Media query for smaller screens (max-width 740px) */
 @media only screen and (max-width: 740px) {
-    form{
-        width: 70%;
-    }}
+  form {
+    /* Targets all form elements */
+    width: 70%; /* Sets the width of the form to 70% of its container on smaller screens */
+  }
+}
 
 /*CONTATTI - SOCIALS*/
-.social-icon{
-    margin: 0 5% 0 5%;
-    border: solid var(--accent) 5px;
-    width: 5vw;
-    height: 5vw;
-    border-radius: 100px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding: 0px;
+.social-icon {
+  /* Styles for social media icons */
+  margin: 0 5% 0 5%; /* Sets margin on all sides except the bottom */
+  border: solid var(--accent) 5px; /* Sets a solid border using the accent color */
+  width: 5vw; /* Sets the width relative to viewport width */
+  height: 5vw; /* Sets the height relative to viewport width */
+  border-radius: 100px; /* Creates a circular shape */
+  background-position: center; /* Centers the background image */
+  background-size: contain; /* Ensures the background image is fully contained within the element */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  padding: 0px; /* Removes any default padding */
 }
 
-.social-icon:hover{
-    transform: scale(1.1);
+.social-icon:hover {
+  /* Styles for social media icons on hover */
+  transform: scale(1.1); /* Enlarges the icon on hover */
 }
 
+/* Media query for screens with a maximum width of 1400px */
 @media only screen and (max-width: 1400px) {
-    .social-icon{
-        width: 10vw;
-    height: 10vw;
-    }}
+  .social-icon {
+    width: 10vw; /* Increases the width for larger screens */
+    height: 10vw; /* Increases the height for larger screens */
+  }
+}
+
+/* Media query for screens with a maximum width of 900px */
 @media only screen and (max-width: 900px) {
-    .social-icon{
-        width: 13vw;
-    height: 13vw;
-    }}
+  .social-icon {
+    width: 13vw; /* Increases the width further for even larger screens */
+    height: 13vw; /* Increases the height further for even larger screens */
+  }
+}
 
 /*FAQS*/
-.faq-container{
-    width: 90vw;
-    height: 70vh;
-    margin: auto;
-    display:grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 10vh 20vh 20vh 20vh;
-    row-gap: 4%; 
-    column-gap: 2%; 
+.faq-container {
+  /* Container for the entire FAQ section */
+  width: 90vw; /* Occupies 90% of the viewport width */
+  height: 70vh; /* Occupies 70% of the viewport height */
+  margin: auto; /* Centers the container horizontally */
+  display: grid; /* Uses grid layout */
+  grid-template-columns: 50% 50%; /* Two equal width columns */
+  grid-template-rows: 10vh 20vh 20vh 20vh; /* Row heights for title and questions */
+  row-gap: 4%; /* Vertical spacing between grid items */
+  column-gap: 2%; /* Horizontal spacing between grid items */
 }
 
-.faq-title{
-    grid-column: 1/3;
-    font-size: 3rem;
-    font-family: "Danfo", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:"ELSH" 0;
-    color: var(--theme-color-2);
-    text-shadow: var(--theme-color-1) -8px 2px;
+.faq-title {
+  /* Styles for the FAQ section title */
+  grid-column: 1/3; /* Spans both columns */
+  font-size: 3rem;
+  font-family: "Danfo", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "ELSH" 0;
+  color: var(--theme-color-2); /* Uses a CSS variable for color */
+  text-shadow: var(--theme-color-1) -8px 2px; /* Applies a text shadow */
 }
 
-.question{
-    margin-bottom: 2%;
-    background: var(--theme-color-2);
-    border-radius: 10px 0px 10px 0px;
-    flex-direction: column;
-    max-height: 20vh;
-    min-height: 20vh;
+.question {
+  /* Styles for individual question containers */
+  margin-bottom: 2%; /* Adds bottom margin */
+  background: var(--theme-color-2); /* Uses a CSS variable for background color */
+  border-radius: 10px 0px 10px 0px; /* Rounds the top corners */
+  flex-direction: column; /* Arranges content vertically */
+  max-height: 20vh; /* Sets a maximum height */
+  min-height: 20vh; /* Sets a minimum height */
 }
 
-.question-title{
-    width: 95%;
-    font-size: 1.5rem;
-    color: var(--accent);
+/* Styles for the question title within the FAQ section */
+.question-title {
+  width: 95%; /* Sets the width to 95% of its container */
+  font-size: 1.5rem; /* Sets the font size */
+  color: var(--accent); /* Uses a CSS variable for the text color */
 }
 
-.faq-answer{
-    width: 95%;
-    color: var(--theme-color-1);
+/* Styles for the answer text within the FAQ section */
+.faq-answer {
+  width: 95%; /* Sets the width to 95% of its container */
+  color: var(--theme-color-1); /* Uses a CSS variable for the text color */
 }
 
+/* Media query for screen widths up to 1100px */
 @media only screen and (max-width: 1100px) {
-    .faq-container{
-        height: 130vh;
-        border-bottom: 20px;
-    }
-    .question{
-        grid-template-rows: 10vh 20vh 20vh 20vh 20vh 20vh 20vh;
-        grid-column: 1/3;
-    }
-    .faq-title{
-        font-size: 2.5rem;
-    }
-    .faq-answer{
-        font-size: 1rem;
-    }}
+  .faq-container {
+    /* Styles for the FAQ container on smaller screens */
+    height: 130vh; /* Sets the height to 130% of the viewport height */
+    border-bottom: 20px; /* Adds a bottom border */
+  }
+  .question {
+    /* Styles for individual question containers on smaller screens */
+    grid-template-rows: 10vh 20vh 20vh 20vh 20vh 20vh 20vh; /* Defines grid row heights */
+    grid-column: 1/3; /* Spans two columns in the grid */
+  }
+  .faq-title {
+    /* Styles for the FAQ title on smaller screens */
+    font-size: 2.5rem; /* Adjusts the font size */
+  }
+  .faq-answer {
+    /* Styles for the answer text on smaller screens */
+    font-size: 1rem; /* Adjusts the font size */
+  }
+}
+
+/* Media query for screen widths up to 700px */
 @media only screen and (max-width: 700px) {
-    .faq-container{
-        height: 130vh;
-        border-bottom: 20px;
-    }
-    .question{
-        grid-template-rows: 10vh 20vh 20vh 20vh 20vh 20vh 20vh;
-        grid-column: 1/3;
-    }
-    .faq-title{
-        font-size: 2rem;
-    }
-    .faq-answer{
-        font-size: 0.8rem;
-    }}
+  .faq-container {
+    /* Styles for the FAQ container on smaller screens */
+    height: 130vh; /* Sets the height to 130% of the viewport height */
+    border-bottom: 20px; /* Adds a bottom border */
+  }
+  .question {
+    /* Styles for individual question containers on smaller screens */
+    grid-template-rows: 10vh 20vh 20vh 20vh 20vh 20vh 20vh; /* Defines grid row heights */
+    grid-column: 1/3; /* Spans two columns in the grid */
+  }
+  .faq-title {
+    /* Styles for the FAQ title on smaller screens */
+    font-size: 2rem; /* Adjusts the font size */
+  }
+  .faq-answer {
+    /* Styles for the answer text on smaller screens */
+    font-size: 0.8rem; /* Adjusts the font size */
+  }
+}
 
 /*CATALOG*/
-.category-buttons{
-    width: 100%;
-    height: 5vh;
-    margin-top: 5vh;
+.category-buttons {
+  /* Styles for the container holding category buttons */
+  width: 100%; /* Sets the width to 100% of its container */
+  height: 5vh; /* Sets the height to 5% of the viewport height */
+  margin-top: 5vh; /* Adds top margin */
 }
 
-.category-btn{
-    height: 80%;
-    width: 10%;
-    margin: 0px 20px 0px 2%;
-    border-radius: 10px;
-    background: var(--theme-color-1);
-    color: var(--theme-color-2);
-    font-weight: bold;
-    border: 2px solid var(--theme-color-2);
-    transition: all 0.5s ease;
+.category-btn {
+  /* Styles for individual category buttons */
+  height: 80%; /* Sets the height to 80% of its container */
+  width: 10%; /* Sets the width to 10% of its container */
+  margin: 0px 20px 0px 2%; /* Sets margins (top, right, bottom, left) */
+  border-radius: 10px; /* Rounds the corners */
+  background: var(--theme-color-1); /* Uses a CSS variable for background color */
+  color: var(--theme-color-2); /* Uses a CSS variable for text color */
+  font-weight: bold; /* Makes the text bold */
+  border: 2px solid var(--theme-color-2);
+  transition: all 0.5s ease;
+}
+/* Styles for category buttons on hover */
+.category-btn:hover {
+  color: var(--theme-color-1); /* Sets text color to theme color 1 on hover */
+  background: var(--theme-color-2); /* Sets background color to theme color 2 on hover */
 }
 
-.category-btn:hover{
-    color: var(--theme-color-1);
-    background: var(--theme-color-2);
+/* Styles for active category buttons */
+.category-btn-active {
+  color: var(--theme-color-1); /* Sets text color to theme color 1 */
+  background: var(--theme-color-2); /* Sets background color to theme color 2 */
 }
 
-.category-btn-active{
-    color: var(--theme-color-1);
-    background: var(--theme-color-2);
+/* Styles for the container holding product cards */
+.products-container {
+  height: 65vh; /* Sets height to 65% of the viewport height */
+  width: 80vw; /* Sets width to 80% of the viewport width */
+  margin: AUTO; /* Centers the container horizontally (Note: should be 'margin: auto;') */
 }
 
-.products-container{
-    height: 65vh;
-    width: 80vw;
-    MARGIN: AUTO;
+/* Styles for individual product cards */
+.product-card {
+  background: var(--theme-color-1); /* Sets background color to theme color 1 */
+  width: 20%; /* Sets width to 20% of its parent container */
+  height: 70%; /* Sets height to 70% of its parent container */
+  flex-direction: column; /* Arranges items vertically within the card */
+  border-radius: 10px; /* Rounds the corners of the card */
+  box-shadow: var(--theme-color-2) 5px 5px; /* Adds a box shadow using theme color 2 */
 }
 
-.product-card{
-    background: var(--theme-color-1);
-    width: 20%;
-    height: 70%;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: var(--theme-color-2) 5px 5px;
+/* Styles for the product image */
+.product-img {
+  width: 90%; /* Sets the width of the image to 90% of its container */
+  height: 55%; /* Sets the height of the image to 55% of its container */
+  border-radius: 10px; /* Rounds the corners of the image */
 }
 
-.product-img{
-    width: 90%;
-    height: 55%;
-    border-radius: 10px;
+/* Styles for the product name */
+.product-name {
+  font-size: 1.5rem; /* Sets the font size of the product name */
+  height: 10%; /* Sets the height of the product name container */
+  width: 90%; /* Sets the width of the product name container */
+  color: var(--theme-color-2); /* Sets the color of the product name using a CSS variable */
+  text-align: center; /* Centers the product name text */
 }
 
-.product-name{
-    font-size: 1.5rem;
-    height: 10%;
-    width: 90%;
-    color: var(--theme-color-2);
-text-align: center;
+/* Styles for the product price */
+.product-price {
+  height: 10%; /* Sets the height of the product price container */
+  width: 90%; /* Sets the width of the product price container */
+  color: var(--theme-color-2); /* Sets the color of the product price using a CSS variable */
+  text-align: center; /* Centers the product price text */
 }
 
-.product-price{
-    height: 10%;
-    width: 90%;
-    color: var(--theme-color-2);
-text-align: center;
+/* Styles for the product button container */
+.product-btn {
+  height: 15%; /* Sets the height of the product button container */
+  width: 90%; /* Sets the width of the product button container */
+  text-align: center; /* Centers the content within the product button container */
 }
 
-.product-btn{
-    height: 15%;
-    width: 90%;
-text-align: center;
+/* Styles for the button inside the product button container */
+.product-btn button {
+  width: 70%;
+  height: 80%;
+  border-radius: 10px; /* Rounds the corners of the button */
+  background: var(--theme-color-1); /* Sets the background color using a CSS variable */
+  border: solid 3px var(--theme-color-2); /* Sets the border style using a CSS variable */
 }
 
-.product-btn button{
-    width: 70%;
-    height: 80%;
-    border-radius: 10px;
-    background: var(--theme-color-1);
-    border: solid 3px var(--theme-color-2);
+/* Styles for images within the product button container */
+.product-btn img {
+  margin-right: 10px; /* Adds a right margin to images */
 }
 
-.product-btn img{
-    margin-right: 10px;
-}
-
+/* Media query for screen widths up to 1500px */
 @media only screen and (max-width: 1500px) {
-    .products-container{
-        width: 90vw;
-    }}
+  .products-container {
+    width: 90vw; /* Sets the width of the products container to 90% of the viewport width */
+  }
+}
+
+/* Media query for screen widths up to 1300px */
 @media only screen and (max-width: 1300px) {
-    .products-container{
-        height: 120vh;
-        display: grid;
-        grid-template-columns: 25% 25% 25%;
-        grid-template-rows: 50% 50%;
-    }
+  .products-container {
+    height: 120vh; /* Sets the height of the products container to 120% of the viewport height */
+    display: grid; /* Sets the display to grid */
+    grid-template-columns: 25% 25% 25%; /* Defines three equal-width columns */
+    grid-template-rows: 50% 50%; /* Defines two equal-height rows */
+  }
 
-    .product-card{
-        width: 100%;
-    }}
+  .product-card {
+    width: 100%; /* Sets the width of each product card to 100% of its container */
+  }
+}
+
+/* Media query for screen widths up to 900px */
 @media only screen and (max-width: 900px) {
-    .category-btn{
-        width: 20%;
-    }
-    .products-container{
-        height: 120vh;
-        display: grid;
-        grid-template-columns: 40% 40%;
-        grid-template-rows: 50% 50%;
-    }
+  .category-btn {
+    width: 20%; /* Sets the width of category buttons to 20% */
+  }
+  .products-container {
+    height: 120vh; /* Sets the height of the products container to 120% of the viewport height */
+    display: grid; /* Sets the display to grid */
+    grid-template-columns: 40% 40%; /* Defines two equal-width columns */
+    grid-template-rows: 50% 50%; /* Defines two equal-height rows */
+  }
 
-    .product-card{
-        width: 100%;
-    }}
+  .product-card {
+    width: 100%; /* Sets the width of each product card to 100% of its container */
+  }
+}
+
+/* Media query for screen widths up to 550px */
 @media only screen and (max-width: 550px) {
-    .category-btn{
-        width: 30%;
-    }
-    .products-container{
-        height: 180vh;
-        display: flex;
-        flex-direction: column;
-    }
+  .category-btn {
+    width: 30%; /* Sets the width of category buttons to 30% */
+  }
+  .products-container {
+    height: 180vh; /* Sets the height of the products container to 180% of the viewport height */
+    display: flex; /* Sets the display to flex */
+    flex-direction: column; /* Stacks the product cards vertically */
+  }
 
-    .product-card{
-        width: 60%;
-        height: 40vh;
-}}
-
-/*ABOUT*/
-.about-container{
-    height: 75vh;
-    width: 80%;
-    margin: auto;
+  .product-card {
+    width: 60%; /* Sets the width of each product card to 60% */
+    height: 40vh; /* Sets the height of each product card to 40% of the viewport height */
+  }
 }
 
-.about-text{
-    width: 30%;
-    height: 80%;
-    margin-right: 10px;
+/* Styles for the about section */
+.about-container {
+  height: 75vh; /* Sets the height of the about container to 75% of the viewport height */
+  width: 80%; /* Sets the width of the about container to 80% */
+  margin: auto; /* Centers the about container horizontally */
 }
 
-.about-title{
-    font-size: 2rem;
-    font-family: "Danfo", serif;
-    font-variation-settings:"ELSH" 0;
-    color: var(--theme-color-2);
-    text-shadow: var(--theme-color-1) -5px 2px;
-    margin-bottom: 5px;   
+.about-text {
+  width: 30%; /* Sets the width of the about text to 30% */
+  height: 80%;
+  margin-right: 10px;
 }
 
-.about-img{
-    width: 70%;
-    height: 80%;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 10px;
+/* Styles for the about section title */
+.about-title {
+  font-size: 2rem; /* Sets the font size to 2rem */
+  font-family: "Danfo", serif; /* Sets the font family to Danfo with a fallback to serif */
+  font-variation-settings: "ELSH" 0; /* Sets font variation settings */
+  color: var(--theme-color-2); /* Sets the text color to the secondary theme color */
+  text-shadow: var(--theme-color-1) -5px 2px; /* Adds a text shadow using the primary theme color */
+  margin-bottom: 5px; /* Adds a bottom margin of 5px */
 }
 
-.about-img-div1, .about-img-div2{
-    height: 50%;
-    width: 100%;
+/* Styles for the about section image container */
+.about-img {
+  width: 70%; /* Sets the width of the image container to 70% */
+  height: 80%; /* Sets the height of the image container to 80% */
+  flex-direction: column; /* Sets the flex direction to column */
+  overflow: hidden; /* Hides any content that overflows the container */
+  border-radius: 10px; /* Adds a border radius of 10px */
 }
 
-.about-img-1{
-    width: 50%;
-    height: 100%;
-    background: url("./img/about/about-1.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* Styles for the image divs within the about section */
+.about-img-div1,
+.about-img-div2 {
+  height: 50%; /* Sets the height of each image div to 50% */
+  width: 100%; /* Sets the width of each image div to 100% */
 }
 
-.about-img-2{
-    width: 50%;
-    height: 100%;
-    background: url("./img/about/about-2.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
+/* Styles for the first about image */
+.about-img-1 {
+  width: 50%; /* Sets the width of the image to 50% */
+  height: 100%; /* Sets the height of the image to 100% */
+  background: url("./img/about/about-1.jpg"); /* Sets the background image */
+  background-size: cover; /* Scales the background image to cover the container */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
 }
 
-.about-img-3{
-    width: 100%;
-    height: 100%;
-    background: url("./img/about/about-3.jpg");
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
+/* Styles for the second about image */
+.about-img-2 {
+  width: 50%; /* Sets the width of the image to 50% */
+  height: 100%; /* Sets the height of the image to 100% */
+  background: url("./img/about/about-2.jpg"); /* Sets the background image */
+  background-size: cover; /* Scales the background image to cover the container */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+}
 
+/* Styles for the third about image */
+.about-img-3 {
+  width: 100%; /* Sets the width of the image to 100% */
+  height: 100%; /* Sets the height of the image to 100% */
+  background: url("./img/about/about-3.jpg"); /* Sets the background image */
+  background-size: cover; /* Scales the background image to cover the container */
+  background-position: top; /* Positions the background image at the top */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
 }
