@@ -1,5 +1,5 @@
 const imgContainer = document.getElementById("img-container")
-const imgArray = ['./img/1.jpg', './img/2.jpg', './img/3.jpg']
+const imgArray = ['./img/slideshow/1.jpg', './img/slideshow/2.jpg', './img/slideshow/3.jpg']
 const next = document.getElementById("next")
 const prev = document.getElementById("prev")
 const maxValue = imgArray.length -1;
